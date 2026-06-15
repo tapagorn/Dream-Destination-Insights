@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประเทศในฝัน บอกความในใจ | Dream Destination Insight</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ประเทศในฝัน บอกความในใจ | Dream Destination Insight">
+    <meta property="og:description"
+        content="ประเทศที่คุณอยากไปมากที่สุด อาจกำลังสะท้อนสิ่งที่หัวใจของคุณกำลังโหยหา มาค้นหาคำตอบกัน">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://yourdomain.com">
+
+    <!-- Google Fonts: Noto Sans Thai -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CSS Variables & Base Styles
+           ========================================= */
+        :root {
+            --primary: #8e2de2;
+            --secondary: #4a00e0;
+            --accent-pink: #ff416c;
+            --accent-blue: #00c6ff;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --white: #ffffff;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc, #ffb6c1, #e0c3fc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           Layout & Containers
+           ========================================= */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem 1.5rem;
+            margin: 0 auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section {
+            display: none;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            width: 100%;
+            text-align: center;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* =========================================
+           Typography
+           ========================================= */
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--primary), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* =========================================
+           Buttons & Inputs
+           ========================================= */
+        .btn {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: inherit;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(142, 45, 226, 0.5);
+        }
+
+        .btn:active:not(:disabled) {
+            transform: translateY(1px) scale(0.98);
+        }
+
+        .btn:disabled {
+            background: #cbd5e0;
+            color: #a0aec0;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn:disabled::after {
+            display: none;
+        }
+
+        /* Gender Selection */
+        .gender-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .gender-btn {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            color: var(--text-main);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gender-btn:hover {
+            border-color: var(--primary);
+            background: #f3ebff;
+        }
+
+        .gender-btn.selected {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(142, 45, 226, 0.2);
+        }
+
+        /* =========================================
+           Country Grid
+           ========================================= */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .country-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: popInCard 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .country-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-hover);
+            background: #fff;
+        }
+
+        .country-card.selected {
+            border-color: var(--primary);
+            background: #f3ebff;
+            box-shadow: 0 0 15px rgba(142, 45, 226, 0.3), 0 0 0 2px var(--primary);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .country-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .country-th {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .country-en {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           Loading State
+           ========================================= */
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3ebff;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 500;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* =========================================
+           Result Section
+           ========================================= */
+        .result-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .result-flag {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .result-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 1rem 0;
+            line-height: 1.4;
+        }
+
+        .result-desc {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-align: left;
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-pink);
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .tag {
+            background: #e6fffa;
+            color: #319795;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Progress Bars */
+        .dimensions-box {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .dimensions-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .progress-item {
+            margin-bottom: 1rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: #edf2f7;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary));
+            width: 0;
+            /* Animated via JS */
+            transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 10px rgba(142, 45, 226, 0.4);
+        }
+
+        .advice-box {
+            background: linear-gradient(135deg, #f3ebff 0%, #ffe6f2 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .quote-box {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           Footer
+           ========================================= */
+        .app-footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            width: 100%;
+            color: rgba(45, 55, 72, 0.7);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        .app-footer p {
+            margin-bottom: 0.3rem;
+            font-size: inherit;
+            color: inherit;
+        }
+
+        .app-footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           Animations
+           ========================================= */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.05);
+            }
+        }
+
+        @keyframes popInCard {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 200%;
+            }
+
+            100% {
+                left: 200%;
+            }
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-emoji {
+            display: inline-block;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, float 4s ease-in-out infinite 1s;
+        }
+
+        .stagger-1 {
+            animation: slideUpFade 0.5s forwards 0.1s;
+            opacity: 0;
+        }
+
+        .stagger-2 {
+            animation: slideUpFade 0.5s forwards 0.2s;
+            opacity: 0;
+        }
+
+        .stagger-3 {
+            animation: slideUpFade 0.5s forwards 0.3s;
+            opacity: 0;
+        }
+
+        .stagger-4 {
+            animation: slideUpFade 0.5s forwards 0.4s;
+            opacity: 0;
+        }
+
+        .stagger-5 {
+            animation: slideUpFade 0.5s forwards 0.5s;
+            opacity: 0;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 9999;
+            pointer-events: none;
+            top: -10px;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =========================================
+           Responsive
+           ========================================= */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .country-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .result-title {
+                font-size: 1.4rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Section 1: Hero & Gender Selection -->
+        <div id="hero-section" class="section active">
+            <div class="hero-emoji">🌍</div>
+            <h1 class="stagger-1">ประเทศในฝัน บอกความในใจ</h1>
+            <p class="stagger-2">ประเทศที่คุณอยากไปมากที่สุด
+                อาจกำลังสะท้อนสิ่งที่หัวใจของคุณกำลังโหยหา<br>มาลองค้นหาคำตอบกันเถอะ</p>
+
+            <div class="gender-selection stagger-3">
+                <p style="margin-bottom: 1rem; font-weight: 500;">ก่อนเริ่มการเดินทาง โปรดระบุเพศของคุณ</p>
+                <div class="gender-options">
+                    <button class="gender-btn" data-gender="ชาย">ชาย</button>
+                    <button class="gender-btn" data-gender="หญิง">หญิง</button>
+                    <button class="gender-btn" data-gender="ไม่ระบุ">ไม่ระบุ</button>
+                </div>
+            </div>
+
+            <button id="start-btn" class="btn stagger-4" disabled>เริ่มเล่นเกม</button>
+        </div>
+
+        <!-- Section 2: Question -->
+        <div id="question-section" class="section">
+            <h2 class="stagger-1">หากวันนี้คุณสามารถเดินทางไปประเทศใดก็ได้ 1 ประเทศ...</h2>
+            <p class="stagger-2">คุณจะเลือกไปที่ไหน? (เลือกได้เพียง 1 ประเทศ)</p>
+
+            <div id="country-grid" class="country-grid stagger-3">
+                <!-- Country cards will be generated by JS -->
+            </div>
+        </div>
+
+        <!-- Section 3: Loading -->
+        <div id="loading-section" class="section">
+            <div class="loader"></div>
+            <h2 class="loading-text">กำลังวิเคราะห์ความในใจของคุณ...</h2>
+            <p>โปรดรอสักครู่ ระบบกำลังประมวลผลจากประเทศที่คุณเลือก</p>
+        </div>
+
+        <!-- Section 4: Result -->
+        <div id="result-section" class="section">
+            <div class="result-header stagger-1">
+                <div id="res-flag" class="result-flag">🇹🇭</div>
+                <h3 id="res-country" style="color: var(--text-muted); font-weight: 500;">ประเทศไทย</h3>
+                <h1 id="res-title" class="result-title">ความสุขที่เรียบง่าย</h1>
+            </div>
+
+            <div id="res-desc" class="result-desc stagger-2">
+                Description goes here.
+            </div>
+
+            <div class="stagger-3">
+                <div style="text-align: left; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main);">
+                    สิ่งที่หัวใจโหยหา:</div>
+                <div id="res-tags" class="tags-container">
+                    <!-- Tags will be injected here -->
+                </div>
+            </div>
+
+            <div class="dimensions-box stagger-4">
+                <div class="dimensions-title">ระดับความต้องการทางใจ 6 มิติ</div>
+                <div id="res-progress">
+                    <!-- Progress bars injected here -->
+                </div>
+            </div>
+
+            <div id="res-advice" class="advice-box stagger-5">
+                Advice goes here.
+            </div>
+
+            <button id="restart-btn" class="btn stagger-5">เล่นอีกครั้ง</button>
+
+            <div id="res-quote" class="quote-box stagger-5">
+                "Quote goes here"
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="app-footer">
+        <p>เกมจิตวิทยาเพื่อการค้นหาตัวตนและแรงบันดาลใจภายใน</p>
+        <p>ผลลัพธ์มีไว้เพื่อความบันเทิงและการสะท้อนมุมมองตนเองเท่านั้น</p>
+    </footer>
+
+    <script>
+        /**
+         * =========================================
+         * Configuration & Database
+         * =========================================
+         */
+
+        // Web App URL ของ Google Apps Script สำหรับบันทึกข้อมูล
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbw90xr6htIjiaKao3gkwLnZd9tUFdRPPNHqIxGccjBkrI03ZCySneweYIl_OlAEncyB/exec";
+
+        // ข้อมูลประเทศและผลลัพธ์
+        const database = {
+            "thailand": {
+                id: "thailand", flag: "🇹🇭", th: "ไทย", en: "Thailand",
+                title: "ความสุขที่เรียบง่ายและการกลับมาเป็นตัวเอง",
+                description: "คุณอาจกำลังเหนื่อยกับการวิ่งตามเป้าหมายหรือความคาดหวังของคนรอบตัว ลึกๆ แล้วคุณต้องการพื้นที่ปลอดภัยที่ทำให้รู้สึกสบายใจเหมือนบ้าน คุณกำลังมองหาความสุขเล็กๆ ที่ไม่ต้องแข่งขันกับใคร และต้องการกลับมาใช้ชีวิตในแบบที่เป็นตัวเองอย่างแท้จริง",
+                longing: ["ความอบอุ่น", "ความสัมพันธ์ที่จริงใจ", "ชีวิตที่ไม่ซับซ้อน", "การพักผ่อนทางใจ"],
+                advice: "บางครั้งความสุขไม่ได้อยู่ไกล แต่อยู่ในช่วงเวลาธรรมดาที่คุณมองข้ามไป",
+                scores: [85, 55, 50, 80, 60, 90]
+            },
+            "japan": {
+                id: "japan", flag: "🇯🇵", th: "ญี่ปุ่น", en: "Japan",
+                title: "การพัฒนาตัวเองให้ดีขึ้นกว่าเดิม",
+                description: "คุณเป็นคนที่มักมองหาโอกาสในการเติบโตอยู่เสมอ และเชื่อว่าชีวิตยังสามารถพัฒนาได้อีกมาก ความสำเร็จในสายตาคุณไม่ใช่จุดหมาย แต่คือการก้าวไปข้างหน้าอย่างต่อเนื่อง",
+                longing: ["วินัย", "ความสำเร็จ", "การเรียนรู้", "การเติบโต"],
+                advice: "อย่าลืมชื่นชมตัวเองในทุกก้าวที่เดินมา",
+                scores: [55, 95, 50, 70, 65, 50]
+            },
+            "south_korea": {
+                id: "south_korea", flag: "🇰🇷", th: "เกาหลีใต้", en: "South Korea",
+                title: "การได้รับการยอมรับและเปล่งประกาย",
+                description: "คุณอยากแสดงศักยภาพของตัวเองให้โลกเห็น และอยากได้รับการยอมรับในสิ่งที่คุณเป็นมากกว่าที่ผ่านมา",
+                longing: ["ความมั่นใจ", "ชื่อเสียง", "การยอมรับ", "เสน่ห์ส่วนตัว"],
+                advice: "คุณมีคุณค่าในแบบของตัวเอง แม้ไม่มีใครรับรองก็ตาม",
+                scores: [75, 80, 60, 55, 60, 45]
+            },
+            "france": {
+                id: "france", flag: "🇫🇷", th: "ฝรั่งเศส", en: "France",
+                title: "ความโรแมนติกและความงดงามของชีวิต",
+                description: "คุณต้องการใช้ชีวิตให้ช้าลง และดื่มด่ำกับรายละเอียดเล็กๆ ที่ทำให้ชีวิตมีสีสันมากขึ้น",
+                longing: ["ความรัก", "ศิลปะ", "ความงาม", "ความสุขจากช่วงเวลา"],
+                advice: "ลองปล่อยให้ตัวเองได้สัมผัสความงดงามรอบตัวมากขึ้น",
+                scores: [95, 60, 55, 50, 65, 70]
+            },
+            "italy": {
+                id: "italy", flag: "🇮🇹", th: "อิตาลี", en: "Italy",
+                title: "ความสุขจากการใช้ชีวิตอย่างเต็มที่",
+                description: "คุณอยากปลดปล่อยตัวเองจากข้อจำกัดบางอย่าง และใช้ชีวิตด้วยความสนุกและอิสระมากขึ้น",
+                longing: ["ความสนุก", "การเฉลิมฉลอง", "อิสระ", "ความสุข"],
+                advice: "ชีวิตไม่จำเป็นต้องสมบูรณ์แบบเสมอไป จึงจะมีความสุข",
+                scores: [75, 60, 90, 45, 55, 65]
+            },
+            "switzerland": {
+                id: "switzerland", flag: "🇨🇭", th: "สวิตเซอร์แลนด์", en: "Switzerland",
+                title: "ความสงบและความมั่นคง",
+                description: "คุณกำลังมองหาความสมดุลและพื้นที่ที่ทำให้จิตใจรู้สึกปลอดภัยและมั่นคง",
+                longing: ["ความมั่นคง", "ความปลอดภัย", "ความสงบ", "ความสมดุล"],
+                advice: "การสร้างฐานที่มั่นคงให้ชีวิตคือการดูแลตัวเองในระยะยาว",
+                scores: [60, 65, 45, 100, 60, 80]
+            },
+            "usa": {
+                id: "usa", flag: "🇺🇸", th: "สหรัฐอเมริกา", en: "United States",
+                title: "ความฝันและโอกาสที่ยิ่งใหญ่กว่าเดิม",
+                description: "คุณยังเชื่อว่ามีโลกใบใหญ่รอให้คุณค้นพบ และไม่อยากหยุดอยู่กับที่",
+                longing: ["โอกาส", "ความสำเร็จ", "การเติบโต", "ความท้าทาย"],
+                advice: "ความฝันจะเข้าใกล้ความจริงเมื่อคุณเริ่มลงมือทำ",
+                scores: [50, 95, 80, 60, 55, 40]
+            },
+            "uk": {
+                id: "uk", flag: "🇬🇧", th: "สหราชอาณาจักร", en: "United Kingdom",
+                title: "ความรู้และคุณค่าภายใน",
+                description: "คุณกำลังมองหาความหมายที่ลึกซึ้งกว่าความสำเร็จภายนอก และต้องการพัฒนาความคิดของตัวเอง",
+                longing: ["ปัญญา", "ความรู้", "มุมมองใหม่", "การพัฒนาตนเอง"],
+                advice: "คำตอบที่ดีที่สุดหลายครั้งเกิดจากการตั้งคำถามที่ดี",
+                scores: [55, 85, 50, 65, 90, 60]
+            },
+            "australia": {
+                id: "australia", flag: "🇦🇺", th: "ออสเตรเลีย", en: "Australia",
+                title: "อิสรภาพในการใช้ชีวิต",
+                description: "คุณอยากหลุดพ้นจากความกดดัน และใช้ชีวิตในแบบที่เลือกเองมากขึ้น",
+                longing: ["อิสระ", "การผจญภัย", "พื้นที่ส่วนตัว", "ความเป็นตัวเอง"],
+                advice: "อย่ากลัวที่จะออกแบบชีวิตในแบบที่คุณต้องการ",
+                scores: [60, 70, 100, 55, 70, 65]
+            },
+            "new_zealand": {
+                id: "new_zealand", flag: "🇳🇿", th: "นิวซีแลนด์", en: "New Zealand",
+                title: "การเยียวยาและการเริ่มต้นใหม่",
+                description: "หัวใจของคุณกำลังต้องการเวลาฟื้นฟู และเริ่มต้นบทใหม่ของชีวิต",
+                longing: ["การพักใจ", "การปล่อยวาง", "ความสงบ", "การเริ่มต้นใหม่"],
+                advice: "การหยุดพักไม่ใช่การถอยหลัง แต่คือการเตรียมพร้อมก้าวต่อไป",
+                scores: [70, 55, 60, 70, 75, 100]
+            },
+            "iceland": {
+                id: "iceland", flag: "🇮🇸", th: "ไอซ์แลนด์", en: "Iceland",
+                title: "การค้นหาความมหัศจรรย์ในชีวิต",
+                description: "คุณกำลังมองหาประสบการณ์ใหม่ๆ ที่จะทำให้หัวใจกลับมามีพลังอีกครั้ง",
+                longing: ["แรงบันดาลใจ", "ความตื่นเต้น", "ประสบการณ์ใหม่", "การค้นพบ"],
+                advice: "เปิดใจให้กับสิ่งที่ไม่คุ้นเคย แล้วคุณอาจพบตัวเองในมุมใหม่",
+                scores: [55, 80, 85, 45, 95, 60]
+            },
+            "egypt": {
+                id: "egypt", flag: "🇪🇬", th: "อียิปต์", en: "Egypt",
+                title: "การค้นหาคำตอบของตัวเอง",
+                description: "คุณกำลังพยายามเข้าใจตัวเองและค้นหาความหมายบางอย่างในชีวิต",
+                longing: ["ตัวตน", "ความหมายชีวิต", "ปัญญาภายใน", "คำตอบที่ค้างคาใจ"],
+                advice: "บางคำตอบไม่ได้อยู่ปลายทาง แต่อยู่ระหว่างการเดินทาง",
+                scores: [60, 70, 55, 60, 100, 65]
+            }
+        };
+
+        const dimensionsList = [
+            "ความรักและความสัมพันธ์",
+            "การเติบโตของตัวเอง",
+            "อิสรภาพ",
+            "ความมั่นคง",
+            "การค้นหาตัวตน",
+            "การพักผ่อนเยียวยา"
+        ];
+
+        const travelQuotes = [
+            "“การเดินทางนับพันไมล์ เริ่มต้นด้วยก้าวแรกเสมอ” – Lao Tzu",
+            "“โลกคือหนังสือเล่มหนึ่ง และผู้ที่ไม่ออกเดินทางเลย คือคนที่อ่านหนังสือเพียงหน้าเดียว” – St. Augustine",
+            "“เราไม่ได้ออกเดินทางเพื่อหนีชีวิต แต่เพื่อไม่ให้ชีวิตหนีเราไป” – Anonymous",
+            "“การลงทุนไปกับการเดินทาง คือการลงทุนในตัวเอง” – Matthew Karsten",
+            "“จุดหมายปลายทางไม่ใช่สถานที่ แต่คือมุมมองใหม่ๆ” – Henry Miller"
+        ];
+
+        /**
+         * =========================================
+         * State Management
+         * =========================================
+         */
+        let state = {
+            gender: null,
+            selectedCountryId: null,
+            visitorId: getVisitorId()
+        };
+
+        // Get elements
+        const sections = {
+            hero: document.getElementById('hero-section'),
+            question: document.getElementById('question-section'),
+            loading: document.getElementById('loading-section'),
+            result: document.getElementById('result-section')
+        };
+
+        const btns = {
+            start: document.getElementById('start-btn'),
+            restart: document.getElementById('restart-btn'),
+            genders: document.querySelectorAll('.gender-btn')
+        };
+
+        /**
+         * =========================================
+         * Initialization & Logic
+         * =========================================
+         */
+
+        function init() {
+            renderCountryCards();
+            setupEventListeners();
+        }
+
+        function getVisitorId() {
+            let id = localStorage.getItem('ddi_visitor_id');
+            if (!id) {
+                // Generate a simple UUID-like string if crypto.randomUUID is not available
+                id = crypto.randomUUID ? crypto.randomUUID() : 'vid_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('ddi_visitor_id', id);
+            }
+            return id;
+        }
+
+        function switchSection(sectionName) {
+            Object.values(sections).forEach(sec => sec.classList.remove('active'));
+            sections[sectionName].classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderCountryCards() {
+            const grid = document.getElementById('country-grid');
+            grid.innerHTML = '';
+
+            Object.values(database).forEach((country, index) => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.dataset.id = country.id;
+                card.style.animationDelay = `${index * 0.05 + 0.3}s`;
+                card.innerHTML = `
+                    <div class="country-emoji">${country.flag}</div>
+                    <div class="country-th">${country.th}</div>
+                    <div class="country-en">${country.en}</div>
+                `;
+
+                card.addEventListener('click', () => selectCountry(country.id, card));
+                grid.appendChild(card);
+            });
+        }
+
+        function setupEventListeners() {
+            // Gender Selection
+            btns.genders.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    btns.genders.forEach(b => b.classList.remove('selected'));
+                    e.target.classList.add('selected');
+                    state.gender = e.target.dataset.gender;
+                    btns.start.disabled = false;
+                });
+            });
+
+            // Start Game
+            btns.start.addEventListener('click', () => {
+                if (state.gender) switchSection('question');
+            });
+
+            // Restart (กลับไปหน้าแรก)
+            btns.restart.addEventListener('click', () => {
+                // ล้างค่า State ทั้งหมดที่ผู้เล่นเลือกไว้
+                state.selectedCountryId = null;
+                state.gender = null;
+
+                // ล้าง UI ที่แสดงผลการเลือกทั้งประเทศและปุ่มเพศ
+                document.querySelectorAll('.country-card').forEach(c => c.classList.remove('selected'));
+                btns.genders.forEach(b => b.classList.remove('selected'));
+
+                // ปิดการใช้งานปุ่มจนกว่าจะมีการเลือกใหม่
+                btns.start.disabled = true;
+
+                // กลับไปหน้าแรก (Hero Section)
+                switchSection('hero');
+            });
+        }
+
+        function selectCountry(id, cardElement) {
+            state.selectedCountryId = id;
+            document.querySelectorAll('.country-card').forEach(c => c.classList.remove('selected'));
+            cardElement.classList.add('selected');
+
+            // หน่วงเวลา 400ms ให้ผู้เล่นเห็น Effect การ์ดที่ถูกเลือกก่อนเปลี่ยนหน้า
+            setTimeout(() => {
+                processResult();
+            }, 400);
+        }
+
+        function processResult() {
+            switchSection('loading');
+
+            // Simulate processing time for better UX
+            setTimeout(() => {
+                renderResultData();
+                saveAndSendData();
+                switchSection('result');
+                triggerConfetti();
+            }, 2500);
+        }
+
+        function triggerConfetti() {
+            const colors = ['#ff416c', '#00c6ff', '#8e2de2', '#f6e05e', '#68d391'];
+            for (let i = 0; i < 70; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+
+                // Randomly make some circles
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                }
+
+                document.body.appendChild(confetti);
+
+                // Cleanup
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        function renderResultData() {
+            const data = database[state.selectedCountryId];
+
+            document.getElementById('res-flag').innerText = data.flag;
+            document.getElementById('res-country').innerText = `${data.th} (${data.en})`;
+            document.getElementById('res-title').innerText = data.title;
+            document.getElementById('res-desc').innerText = data.description;
+            document.getElementById('res-advice').innerText = `✨ "${data.advice}"`;
+
+            // Tags
+            const tagsHtml = data.longing.map(tag => `<span class="tag">#${tag}</span>`).join('');
+            document.getElementById('res-tags').innerHTML = tagsHtml;
+
+            // Progress Bars
+            const progressContainer = document.getElementById('res-progress');
+            progressContainer.innerHTML = '';
+
+            data.scores.forEach((score, index) => {
+                const dim = dimensionsList[index];
+                const html = `
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>${dim}</span>
+                            <span>${score}%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="bar-${index}" style="width: 0%"></div>
+                        </div>
+                    </div>
+                `;
+                progressContainer.insertAdjacentHTML('beforeend', html);
+            });
+
+            // Animate bars after rendering, delayed to match stagger animation
+            setTimeout(() => {
+                data.scores.forEach((score, index) => {
+                    const bar = document.getElementById(`bar-${index}`);
+                    if (bar) bar.style.width = `${score}%`;
+                });
+            }, 800);
+
+            // Random Quote
+            const randomQuote = travelQuotes[Math.floor(Math.random() * travelQuotes.length)];
+            document.getElementById('res-quote').innerText = randomQuote;
+        }
+
+        /**
+         * =========================================
+         * Data Tracking & Storage
+         * =========================================
+         */
+        function saveAndSendData() {
+            const resultData = database[state.selectedCountryId];
+            const payload = {
+                Timestamp: new Date().toISOString(),
+                Gender: state.gender,
+                SelectedCountry: resultData.th,
+                ResultTitle: resultData.title,
+                VisitorId: state.visitorId,
+                UserAgent: navigator.userAgent
+            };
+
+            // 1. Save to LocalStorage for history (Optional but good for UX)
+            const history = JSON.parse(localStorage.getItem('ddi_history') || '[]');
+            history.push(payload);
+            localStorage.setItem('ddi_history', JSON.stringify(history));
+
+            // 2. Send to Google Apps Script
+            // Note: ใช้โหมด no-cors เพื่อเลี่ยงปัญหา CORS block ในเบราว์เซอร์เวลาส่งข้อมูลไป GAS แบบพื้นฐาน
+            if (GAS_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+                fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                }).catch(error => console.error('Error sending data:', error));
+            } else {
+                console.log("Mock Payload to GAS:", payload);
+            }
+        }
+
+        // Boot the app
+        window.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+
+</html>
